@@ -1,26 +1,20 @@
 plugins {
-    kotlin("jvm")  version "1.6.21"
-    id("org.springframework.boot") version "2.7.1"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    kotlin("plugin.spring") version "1.6.21"
-}
+    id("org.springframework.boot")
 
-group = "artemas.demo"
-version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
-
-repositories {
-    mavenCentral()
+    kotlin("jvm")
+    kotlin("plugin.spring")
+    kotlin("plugin.jpa")
 }
 
 dependencies {
     // module dependencies
     api(project(":application"))
-    api(project(":domain"))
 
     // spring dependencies
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    runtimeOnly("com.h2database:h2")
 
     // test dependencies
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -28,4 +22,12 @@ dependencies {
 
 springBoot {
     mainClass.value("artemas.demo.BookApplicationKt")
+}
+
+tasks.bootJar {
+    destinationDirectory.set(file(rootProject.buildDir))
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
