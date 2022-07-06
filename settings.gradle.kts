@@ -1,2 +1,2 @@
 rootProject.name = "book"
-include("adapter", "application", "domain")
+include("adapter", "application", "domain", "integration-test")

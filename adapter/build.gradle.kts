@@ -1,12 +1,10 @@
 plugins {
-    kotlin("jvm")  version "1.6.21"
-    id("org.springframework.boot") version "2.7.1"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    kotlin("plugin.spring") version "1.6.21"
+    id("org.springframework.boot")
+
+    kotlin("jvm")
+    kotlin("plugin.spring")
 }
 
-group = "artemas.demo"
-version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
