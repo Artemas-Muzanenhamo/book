@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class ShouldCreateABook {
+class CreateABookUseCaseShould {
     @Autowired
     private lateinit var createABookUseCase: CreateABookUseCase
 
