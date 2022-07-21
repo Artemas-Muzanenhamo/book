@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm")
+    id("org.springframework.boot")
 }
 
-repositories {
-    mavenCentral()
+tasks.bootJar {
+    enabled = false
 }

@@ -1,13 +1,30 @@
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 plugins {
-    kotlin("jvm")
-}
+    id("org.springframework.boot")
 
-repositories {
-    mavenCentral()
+    kotlin("plugin.spring")
 }
 
 dependencies {
     api(project(":domain"))
+    implementation("org.springframework:spring-context")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+tasks.bootJar {
+    enabled = false
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+tasks.bootJar {
+    enabled = false
+}
+
+tasks.bootRun {
+    enabled = false
 }
