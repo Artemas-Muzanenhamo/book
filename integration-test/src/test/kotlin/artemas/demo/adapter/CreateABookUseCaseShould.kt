@@ -1,4 +1,4 @@
-package artemas.demo
+package artemas.demo.adapter
 
 import artemas.demo.dto.BookDTO
 import artemas.demo.ports.CreateABookUseCase
