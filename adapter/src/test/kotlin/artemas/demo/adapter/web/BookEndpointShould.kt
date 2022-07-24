@@ -1,6 +1,5 @@
-package artemas.demo.adapter
+package artemas.demo.adapter.web
 
-import artemas.demo.adapter.web.BookEndpoint
 import artemas.demo.dto.BookDTO
 import artemas.demo.ports.CreateABookUseCase
 import org.junit.jupiter.api.Test
@@ -8,7 +7,6 @@ import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
-import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
@@ -24,7 +22,7 @@ class BookEndpointShould {
     private lateinit var createABookUseCase: CreateABookUseCase
 
     @Test
-    fun `Should save a book`() {
+    fun `Should save a book given a BookJson`() {
         val bookDTO = BookDTO(id = 123413, bookName = "Lord of the Flies", isbnNumber = 894379345)
         given(createABookUseCase.createABook(bookDTO)).willReturn(bookDTO)
 
