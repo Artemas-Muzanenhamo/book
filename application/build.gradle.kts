@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":domain"))
+    api(project(":domain"))
     implementation("org.springframework:spring-context")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
