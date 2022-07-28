@@ -1,8 +1,8 @@
 package artemas.demo.adapter.web
 
 import artemas.demo.adapter.web.json.BookJson
-import artemas.demo.dto.BookDTO
-import artemas.demo.ports.CreateABookUseCase
+import artemas.demo.application.dto.BookDTO
+import artemas.demo.application.ports.CreateABookUseCase
 import org.springframework.http.HttpStatus.CREATED
 import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.web.bind.annotation.PostMapping

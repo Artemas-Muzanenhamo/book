@@ -7,10 +7,11 @@ plugins {
 }
 
 dependencies {
-    api(project(":domain"))
+    implementation(project(":domain"))
     implementation("org.springframework:spring-context")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.mockito:mockito-inline:4.6.1")
 }
 
 tasks.bootJar {

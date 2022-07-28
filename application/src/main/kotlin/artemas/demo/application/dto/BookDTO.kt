@@ -1,6 +1,6 @@
-package model
+package artemas.demo.application.dto
 
-data class Book(
+data class BookDTO(
     val id: Long,
     val bookName: String,
     val isbnNumber: Long

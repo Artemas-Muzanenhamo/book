@@ -1,7 +1,7 @@
 package artemas.demo.adapter.web
 
-import artemas.demo.dto.BookDTO
-import artemas.demo.ports.CreateABookUseCase
+import artemas.demo.application.dto.BookDTO
+import artemas.demo.application.ports.CreateABookUseCase
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
