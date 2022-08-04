@@ -23,3 +23,19 @@ hexagonal_.
 
 Below is a visual representation of the hexagonal architecture: 
 <img src="https://user-images.githubusercontent.com/29547780/182966067-095adf6b-ee12-40af-95e5-dcd4f6642a7a.png">
+
+#### Enforcing the architecture
+
+##### Packages vs Modules
+
+##### Gradle Modules
+
+##### Arch Unit
+
+### Resources
+
+* [The Principles of Clean Architecture by Uncle Bob Martin](https://www.youtube.com/watch?v=o_TH-Y78tt4)
+* [Hexagonal Architecture (Ports and Adapters) with Alistair Cockburn](https://www.youtube.com/watch?v=AOIWUPjal60)
+* [Boundary Control Entity Architecture Pattern](https://vaclavkosar.com/software/Boundary-Control-Entity-Architecture-The-Pattern-to-Structure-Your-Classes)
+* [Entity-control-boundary](https://en.wikipedia.org/wiki/Entity-control-boundary)
+* [Clean Architecture with Spring by Tom Hombergs @ Spring I/O 2019](https://www.youtube.com/watch?v=cPH5AiqLQTo)
