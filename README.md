@@ -19,10 +19,10 @@ frameworks and their rules through the use of ports and adapters. These interfac
 application but most importantly they are the gateway for anything external to interact with the business logic or _the
 hexagonal_.
 
-<img src="https://user-images.githubusercontent.com/29547780/182962640-8c991acb-a280-4f0f-b130-0a450c34ecf1.png" alt="hexagonal-architecture-image" title="hexagonal-architecture-image">
+<img src="https://user-images.githubusercontent.com/29547780/192382644-89b26727-ee9b-467d-9487-823ac9f52e10.png" alt="hexagonal-architecture-image" title="hexagonal-architecture-image">
 
 Below is a visual representation of the hexagonal architecture: 
-<img src="https://user-images.githubusercontent.com/29547780/182966067-095adf6b-ee12-40af-95e5-dcd4f6642a7a.png">
+<img src="https://user-images.githubusercontent.com/29547780/192381776-fbe649ea-6c3a-49a4-995d-5adbd19050b5.png">
 
 #### Enforcing the architecture
 
