@@ -21,7 +21,7 @@ internal class CreateBookAdapterTest {
     private lateinit var logger: Logger
 
     @Test
-    fun `Should save book entity given a book DTO`() {
+    fun `Should save a book entity given a book DTO`() {
         val bookDTO = BookDTO(id = 12334, bookName = "Demo Book Name", isbnNumber = 987345395)
 
         val savedBook = createBookAdapter.createABook(bookDTO)

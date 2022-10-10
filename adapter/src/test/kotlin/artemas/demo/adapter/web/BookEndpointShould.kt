@@ -24,7 +24,7 @@ class BookEndpointShould {
     private lateinit var logger: Logger
 
     @Test
-    fun `Should save a book given a BookJson`() {
+    fun `Saves a book given a BookJson and returns a BookJson when saving completes`() {
         val bookDTO = BookDTO(id = 123413, bookName = "Lord of the Flies", isbnNumber = 894379345)
         given(createABookUseCase.createABook(bookDTO)).willReturn(bookDTO)
 

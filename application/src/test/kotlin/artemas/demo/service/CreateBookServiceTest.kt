@@ -19,7 +19,7 @@ internal class CreateBookServiceTest {
     lateinit var createBookService: CreateBookService
 
     @Test
-    fun `Should Create A Book And Return A Book Generated`() {
+    fun `Calls createABookPort() to Create A Book And Return A Book Generated`() {
         val bookDTO = BookDTO(id = 6748234, bookName = "Harry Porter", isbnNumber = 346287432)
         given(createABookPort.createABook(bookDTO)).willReturn(bookDTO)
 

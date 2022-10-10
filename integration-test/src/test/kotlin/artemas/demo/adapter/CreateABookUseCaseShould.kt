@@ -16,7 +16,7 @@ class CreateABookUseCaseShould {
     private lateinit var logger: Logger
 
     @Test
-    fun `Create A Book`() {
+    fun `It saves a book given a valid id, book name and valid isbn number`() {
         val book = BookDTO(id = 54325, bookName = "Great Expectations", isbnNumber = 9873459837534)
 
         val createdBook = createABookUseCase.createABook(book)
