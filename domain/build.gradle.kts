@@ -5,3 +5,7 @@ plugins {
 tasks.bootJar {
     enabled = false
 }
+
+tasks.bootRun {
+    enabled = false
+}
