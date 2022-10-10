@@ -4,6 +4,7 @@ import artemas.demo.dto.BookDTO
 import artemas.demo.ports.CreateABookUseCase
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
+import org.slf4j.Logger
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -17,9 +18,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 class BookEndpointShould {
     @Autowired
     private lateinit var mockMvc: MockMvc
-
     @MockBean
     private lateinit var createABookUseCase: CreateABookUseCase
+    @MockBean
+    private lateinit var logger: Logger
 
     @Test
     fun `Should save a book given a BookJson`() {
