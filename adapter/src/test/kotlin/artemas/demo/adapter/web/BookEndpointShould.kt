@@ -2,7 +2,10 @@ package artemas.demo.adapter.web
 
 import artemas.demo.dto.BookDTO
 import artemas.demo.ports.CreateABookUseCase
+import artemas.demo.ports.DeleteABookUseCase
 import org.junit.jupiter.api.Test
+import org.mockito.BDDMockito.doNothing
+import org.mockito.BDDMockito.doReturn
 import org.mockito.BDDMockito.given
 import org.slf4j.Logger
 import org.springframework.beans.factory.annotation.Autowired
@@ -10,7 +13,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
@@ -20,6 +24,8 @@ class BookEndpointShould {
     private lateinit var mockMvc: MockMvc
     @MockBean
     private lateinit var createABookUseCase: CreateABookUseCase
+    @MockBean
+    private lateinit var deleteABookUseCase: DeleteABookUseCase
     @MockBean
     private lateinit var logger: Logger
 
@@ -51,5 +57,21 @@ class BookEndpointShould {
                 }"""
                 )
             )
+    }
+
+    @Test
+    fun `Deletes a book given an existing Book ISBN number`() {
+        mockMvc.perform(
+            delete("/book")
+                .accept(APPLICATION_JSON_VALUE)
+                .contentType(APPLICATION_JSON_VALUE)
+                .content(
+                    """
+                    {
+                        "isbnNumber": "894379345"
+                    }
+                    """.trimIndent()
+                )
+        ).andExpect(status().isOk)
     }
 }

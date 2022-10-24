@@ -21,11 +21,11 @@ open class BookDeletionIntegrationTest {
     private lateinit var bookRepository: BookRepository
 
     @Test
-    fun `Deletes an existing book given a valid ISBN number`() {
+    fun `Deletes an existing book given a valid book id`() {
         val book = BookDTO(id = 54325, bookName = "Great Expectations", isbnNumber = 9873459837534)
         createABookUseCase.createABook(book)
 
-        deleteABookUseCase.deleteBy(book.isbnNumber)
+        deleteABookUseCase.deleteBy(id = book.id)
 
         assertThat(bookRepository.count()).isZero
     }

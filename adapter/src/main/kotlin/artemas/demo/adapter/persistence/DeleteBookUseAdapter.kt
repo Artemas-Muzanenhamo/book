@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class DeleteBookUseAdapter(private val bookRepository: BookRepository): DeleteABookPort {
-    override fun by(isbnNumber: Long) {
-        bookRepository.deleteBookEntityByIsbnNumber(isbnNumber)
+    override fun by(id: Long) {
+        bookRepository.deleteById(id)
     }
 }

@@ -1,5 +1,5 @@
 package artemas.demo.ports
 
 interface DeleteABookPort {
-    fun by(isbnNumber: Long)
+    fun by(id: Long)
 }

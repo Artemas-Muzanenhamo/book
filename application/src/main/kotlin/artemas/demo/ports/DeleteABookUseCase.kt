@@ -1,5 +1,5 @@
 package artemas.demo.ports
 
 interface DeleteABookUseCase {
-    fun deleteBy(isbnNumber: Long)
+    fun deleteBy(id: Long)
 }
