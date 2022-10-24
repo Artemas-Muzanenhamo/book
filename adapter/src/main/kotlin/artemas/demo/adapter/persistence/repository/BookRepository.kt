@@ -5,4 +5,6 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface BookRepository: CrudRepository<BookEntity, Long>
+interface BookRepository: CrudRepository<BookEntity, Long> {
+    fun deleteBookEntityByIsbnNumber(isbnNumber: Long)
+}
