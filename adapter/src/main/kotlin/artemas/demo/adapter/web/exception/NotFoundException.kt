@@ -1,3 +1,3 @@
 package artemas.demo.adapter.web.exception
 
-class NotFoundException(message: String) : Exception(message)
+class NotFoundException(message: String) : RuntimeException(message)

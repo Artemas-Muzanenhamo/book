@@ -1,9 +1,11 @@
 package artemas.demo.adapter.web
 
+import artemas.demo.adapter.web.exception.NotFoundException
 import artemas.demo.dto.BookDTO
 import artemas.demo.ports.CreateABookUseCase
 import artemas.demo.ports.DeleteABookUseCase
 import org.junit.jupiter.api.Test
+import org.mockito.BDDMockito.any
 import org.mockito.BDDMockito.doNothing
 import org.mockito.BDDMockito.doReturn
 import org.mockito.BDDMockito.given
@@ -15,6 +17,7 @@ import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.result.ContentResultMatchers
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
@@ -73,5 +76,23 @@ class BookEndpointShould {
                     """.trimIndent()
                 )
         ).andExpect(status().isOk)
+    }
+
+    @Test
+    fun `Throws an InvalidBookIdException when trying to delete a non existent book`() {
+        given(deleteABookUseCase.deleteBy(894379345)).willThrow(NotFoundException("Book with id: 894379345 was not found"))
+
+        mockMvc.perform(
+            delete("/book")
+                .accept(APPLICATION_JSON_VALUE)
+                .contentType(APPLICATION_JSON_VALUE)
+                .content(
+                    """
+                    {
+                        "isbnNumber": "894379345"
+                    }
+                    """.trimIndent()
+                )
+        ).andExpect(status().isBadRequest).andExpect(content().string("An Invalid Book Id was supplied"))
     }
 }

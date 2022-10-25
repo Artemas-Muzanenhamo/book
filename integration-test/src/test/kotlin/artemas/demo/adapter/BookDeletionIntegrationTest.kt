@@ -9,11 +9,13 @@ import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.transaction.annotation.Transactional
 
 @SpringBootTest
 @Transactional
+@AutoConfigureTestEntityManager
 open class BookDeletionIntegrationTest {
     @Autowired
     private lateinit var createABookUseCase: CreateABookUseCase
