@@ -6,7 +6,7 @@ import artemas.demo.ports.DeleteABookPort
 import org.springframework.stereotype.Component
 
 @Component
-class DeleteBookUseAdapter(private val bookRepository: BookRepository): DeleteABookPort {
+class DeleteBookAdapter(private val bookRepository: BookRepository): DeleteABookPort {
     override fun by(id: Long) {
         try {
             bookRepository.deleteById(id)
