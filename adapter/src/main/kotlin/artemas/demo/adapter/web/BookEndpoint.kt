@@ -5,12 +5,14 @@ import artemas.demo.adapter.web.json.BookJson
 import artemas.demo.dto.BookDTO
 import artemas.demo.ports.CreateABookUseCase
 import artemas.demo.ports.DeleteABookUseCase
+import artemas.demo.ports.UpdateABookUseCase
 import org.slf4j.Logger
 import org.springframework.http.HttpStatus.CREATED
 import org.springframework.http.HttpStatus.OK
 import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController
 class BookEndpoint(
     val createABookUseCase: CreateABookUseCase,
     val deleteABookUseCase: DeleteABookUseCase,
+    val updateABookUseCase: UpdateABookUseCase,
     val logger: Logger
 ) {
 
@@ -34,6 +37,13 @@ class BookEndpoint(
     @ResponseStatus(OK)
     fun deleteABookBy(@RequestBody bookIsbnJson: BookIsbnJson) {
         deleteABookUseCase.deleteBy(bookIsbnJson.isbnNumber)
+    }
+
+    @PutMapping("/book")
+    @ResponseStatus(OK)
+    fun updateBook(@RequestBody bookJson: BookJson): BookJson {
+        val updatedBook = updateABookUseCase.update(bookJson.toDTO())
+        return updatedBook.toJson()
     }
 }
 

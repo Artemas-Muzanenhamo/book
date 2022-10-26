@@ -4,6 +4,7 @@ import artemas.demo.adapter.web.exception.NotFoundException
 import artemas.demo.dto.BookDTO
 import artemas.demo.ports.CreateABookUseCase
 import artemas.demo.ports.DeleteABookUseCase
+import artemas.demo.ports.UpdateABookUseCase
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.any
 import org.mockito.BDDMockito.doNothing
@@ -29,6 +30,8 @@ class BookEndpointShould {
     private lateinit var createABookUseCase: CreateABookUseCase
     @MockBean
     private lateinit var deleteABookUseCase: DeleteABookUseCase
+    @MockBean
+    private lateinit var updateABookUseCase: UpdateABookUseCase
     @MockBean
     private lateinit var logger: Logger
 
@@ -94,5 +97,35 @@ class BookEndpointShould {
                     """.trimIndent()
                 )
         ).andExpect(status().isBadRequest).andExpect(content().string("An Invalid Book Id was supplied"))
+    }
+
+    @Test
+    fun `Returns a 200 OK on successful update of an already existing book`() {
+        val bookDTO = BookDTO(id = 67832402348, bookName = "Kobe Bryant Documentary", isbnNumber = 836647362)
+        given(updateABookUseCase.update(bookDTO)).willReturn(bookDTO)
+
+        mockMvc.perform(
+            put("/book")
+                .accept(APPLICATION_JSON_VALUE)
+                .contentType(APPLICATION_JSON_VALUE)
+                .content(
+                    """
+                        {
+                            "id": 67832402348,
+                            "bookName": "Kobe Bryant Documentary",
+                            "isbnNumber": 836647362
+                        }
+                    """.trimIndent()
+                )
+        ).andExpect(status().isOk)
+            .andExpect(
+                content().json(
+                    """{
+                    "id": 67832402348,
+                    "bookName": "Kobe Bryant Documentary",
+                    "isbnNumber": 836647362
+                }"""
+                )
+            )
     }
 }
