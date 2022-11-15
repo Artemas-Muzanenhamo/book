@@ -9,9 +9,14 @@ application layer entering into the domain layer.
 ## Pre-requisites
 
 * Java 11+
+* Gradle
+
+## Application Commands
+* `./gradlew bootR` - Starts up the Spring Boot application.
+* `./gradlew clean build` - Builds the application including running integration + unit tests.
+* `http://localhost:8080/swagger-ui/index.html` - Swagger UI which shows the application API endpoints.
 
 ### The Hexagonal Architecture
-
 
 #### The Intent
 The main goal of this architecture is to abstract(loosely-couple) your business logic from external technologies or
@@ -22,7 +27,8 @@ hexagonal_.
 <img src="https://user-images.githubusercontent.com/29547780/192382644-89b26727-ee9b-467d-9487-823ac9f52e10.png" alt="hexagonal-architecture-image" title="hexagonal-architecture-image">
 
 Below is a visual representation of the hexagonal architecture: 
-<img src="https://user-images.githubusercontent.com/29547780/192381776-fbe649ea-6c3a-49a4-995d-5adbd19050b5.png">
+
+<img src="https://user-images.githubusercontent.com/29547780/192381776-fbe649ea-6c3a-49a4-995d-5adbd19050b5.png" alt="hexagonal-architecture-full-picture-image">
 
 #### Enforcing the architecture
 
